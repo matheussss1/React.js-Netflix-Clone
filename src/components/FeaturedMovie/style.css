@@ -1,6 +1,6 @@
 .featured-movie {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
 }
 
 .featured-movie__box {
@@ -8,5 +8,27 @@
     height: inherit;
 
     background: linear-gradient(to top, #141414, transparent),
-                linear-gradient(to right, #141414 30%, transparent);
+                linear-gradient(to right, rgb(10,10,10,.9) 28%, transparent);
+    position: relative;
+}
+
+.featured-movie__details{
+    position: absolute;
+    width: 50%;
+    max-width: 600px;
+    top: 40%;
+    transform: translate(10%, -50%);
+    font-size: 1.6rem;
+}
+
+.featured-movie__details > *:not(:last-child){
+    margin-bottom: 1rem;
+}
+
+.featured-movie__title {
+    font-size: 4rem;
+}
+
+.featured-movie__info span{
+    margin-right: 1.5rem;
 }

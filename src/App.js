@@ -12,12 +12,14 @@ export const App = () => {
   const [featuredMovie, setFeaturedMovie] = useState(null);
 
   const loadMovies = useCallback(async() => {
-    const list = await Tmdb.movieList();
-    setMovieList(list);
+    const allMovies = await Tmdb.movieList();
+    setMovieList(allMovies);
 
-    const movieList = list.filter(e => e.slug === 'originals');
-    const random = Math.round(Math.random() * movieList[0].items.results.length);
-    const featured = await Tmdb.movieInfo(movieList[0].items.results[random].id);
+    const netflixMovies = allMovies.filter(e => e.slug === 'originals')[0].items.results;
+    const moviesWithDescription = netflixMovies.filter(e =>  e.overview !== '');
+
+    const randomIndex = Math.round(Math.random() * moviesWithDescription?.length);
+    const featured = await Tmdb.movieInfo(moviesWithDescription[randomIndex]?.id);
     setFeaturedMovie(featured);
   }, [])
 

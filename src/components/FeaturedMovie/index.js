@@ -11,15 +11,25 @@ export const FeaturedMovie = ({movie}) => {
                 backgroundSize: 'cover', backgroundPosition: 'center'
             }}>
                 <div className="featured-movie__box">
-                    <h1 className="featured-movie__title">
-                        {movie.name}
-                    </h1>
-                    <span>
-                        {movie.vote_average}
-                    </span>
-                    <p>
-                        {movie.overview}
-                    </p>
+                    <div className="featured-movie__details">
+                        <h1 className="featured-movie__title">
+                            {movie.name}
+                        </h1>
+                        <div className="featured-movie__info">
+                            <span>
+                                {movie.first_air_date.slice(0,4)}
+                            </span>
+                            <span>
+                                {`${movie.number_of_seasons} Temporada${movie.number_of_seasons > 1 ? 's' : ''}`}
+                            </span>
+                            <span>
+                                {movie.vote_average}
+                            </span>
+                        </div>
+                        <p className="featured-movie__overview">
+                            {movie.overview}
+                        </p>
+                    </div>
                 </div>
             </div>
         </>
