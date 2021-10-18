@@ -3,7 +3,6 @@ import './style.css'
 const BaseImagePath = 'https://image.tmdb.org/t/p/original';
 
 export const FeaturedMovie = ({movie}) => {
-    console.log(movie)
     return (
         <>
             <div className="featured-movie" style={{

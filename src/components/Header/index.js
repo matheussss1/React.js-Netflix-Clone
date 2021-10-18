@@ -6,18 +6,14 @@ import { useState } from 'react/cjs/react.development';
 import { useCallback, useEffect } from 'react';
 
 export const Header = () => {
-  
   const [header, setHeader] = useState(false);
 
   const handleChangeHeaderBackground = useCallback(() => {
     window.scrollY > 80 ? setHeader(true) : setHeader(false);
-  }, [])
+  }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', handleChangeHeaderBackground);
-    return () => {
-      window.removeEventListener('scroll', handleChangeHeaderBackground);
-    }
   }, [handleChangeHeaderBackground]);
 
   return (

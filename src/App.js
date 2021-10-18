@@ -21,11 +21,9 @@ export const App = () => {
     const randomIndex = Math.round(Math.random() * moviesWithDescription?.length);
     const featured = await Tmdb.movieInfo(moviesWithDescription[randomIndex]?.id);
     setFeaturedMovie(featured);
-  }, [])
+  }, [setMovieList, setFeaturedMovie]);
 
-  useEffect(() => {
-    loadMovies();
-  }, [loadMovies])
+  useEffect(loadMovies, [loadMovies]);
 
   return (
     <>
