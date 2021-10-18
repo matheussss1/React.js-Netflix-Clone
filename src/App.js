@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { Tmdb } from "./dataProvider/tmdb.js";
 import { MovieRow } from "./components/MovieRow/index.js";
@@ -11,19 +11,21 @@ export const App = () => {
   const [movieList, setMovieList] = useState([]);
   const [featuredMovie, setFeaturedMovie] = useState(null);
 
-  useEffect(() => {
-    async function loadMovies(){
-      const list = await Tmdb.movieList();
-      setMovieList(list);
+  const loadMovies = useCallback(async() => {
+    const list = await Tmdb.movieList();
+    setMovieList(list);
 
-      const featured = list.filter(e => e.slug === 'originals');
-      const random = Math.round(Math.random() * featured[0].items.results.length);
-
-      setFeaturedMovie(featured[0].items.results[random]);
-    }
-
-    loadMovies();
+    const movieList = list.filter(e => e.slug === 'originals');
+    const random = Math.round(Math.random() * movieList[0].items.results.length);
+    const featured = await Tmdb.movieInfo(movieList[0].items.results[random].id);
+    setFeaturedMovie(featured);
   }, [])
+
+  console.log('app')
+
+  useEffect(() => {
+    loadMovies();
+  }, [loadMovies])
 
   return (
     <>

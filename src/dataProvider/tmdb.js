@@ -45,5 +45,8 @@ export const Tmdb =
                     items: await fetchData('/discover/movie?with_genres=27'),
                 },
             ]
+        }, 
+        movieInfo: async(movieId) => {
+            return await fetchData(`/tv/${movieId}?`);
         }
     }
