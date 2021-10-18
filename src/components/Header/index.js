@@ -3,16 +3,22 @@ import Avatar from '../../assets/avatar.png'
 
 import './style.css'
 import { useState } from 'react/cjs/react.development';
+import { useCallback, useEffect } from 'react';
 
 export const Header = () => {
+  
   const [header, setHeader] = useState(false);
 
-  window.addEventListener('scroll', handleChangeHeaderBackground);
+  const handleChangeHeaderBackground = useCallback(() => {
+    window.scrollY > 80 ? setHeader(true) : setHeader(false);
+  }, [])
 
-  function handleChangeHeaderBackground() {
-    if (window.scrollY >= 80) return setHeader(true);
-    return setHeader(false);
-  }
+  useEffect(() => {
+    window.addEventListener('scroll', handleChangeHeaderBackground);
+    return () => {
+      window.removeEventListener('scroll', handleChangeHeaderBackground);
+    }
+  }, [handleChangeHeaderBackground]);
 
   return (
     <header className={`header ${header? 'header--active' : ''}`}>
@@ -21,7 +27,7 @@ export const Header = () => {
         </div>
         
         <div className="header__user-avatar">
-          <img src={Avatar}/>
+          <img src={Avatar} alt="user avatar"/>
         </div>
     </header>
   )

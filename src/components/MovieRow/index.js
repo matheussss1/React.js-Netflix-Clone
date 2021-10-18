@@ -8,7 +8,7 @@ export const MovieRow = ({name, items}) => {
                 <ul>
                     {items.map((item, key) => (
                         <li key={key}>
-                            <img src={`${BaseImagePath}${item.poster_path}`}/>
+                            <img src={`${BaseImagePath}${item.poster_path}`} alt="movie poster"/>
                         </li>
                     ))}
                 </ul>
