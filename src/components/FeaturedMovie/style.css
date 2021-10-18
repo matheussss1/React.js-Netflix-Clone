@@ -16,7 +16,7 @@
     position: absolute;
     width: 50%;
     max-width: 600px;
-    top: 40%;
+    top: 45%;
     transform: translate(10%, -50%);
     font-size: 1.6rem;
 }
@@ -26,9 +26,17 @@
 }
 
 .featured-movie__title {
-    font-size: 4rem;
+    font-size: 3.4rem;
 }
 
 .featured-movie__info span{
     margin-right: 1.5rem;
+}
+
+@media(max-width: 800px) {
+    .featured-movie__details{
+        width: 80%;
+        max-width: 100%;
+        font-size: 1.2rem;
+    }
 }
