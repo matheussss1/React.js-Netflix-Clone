@@ -21,8 +21,6 @@ export const App = () => {
     setFeaturedMovie(featured);
   }, [])
 
-  console.log('app')
-
   useEffect(() => {
     loadMovies();
   }, [loadMovies])
