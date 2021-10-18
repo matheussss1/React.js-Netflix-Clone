@@ -1,0 +1,28 @@
+.movie-row{
+    overflow-x: hidden;
+    padding-left: 1rem;
+
+    font-size: .9rem;
+}
+
+.movie-row ul {
+    list-style: none;
+    width: 999999999px;
+}
+
+.movie-row li {
+    display: inline-block;
+    width: 150px;
+}
+
+.movie-row img {
+    width: 100%;
+    transform: scale(0.9);
+    transition: transform ease-in-out .2s;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.movie-row img:hover{
+    transform: scale(1.0);
+}

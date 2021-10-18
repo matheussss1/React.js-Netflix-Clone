@@ -1,0 +1,29 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.header__logo{
+    max-width: 150px;
+}
+
+.header__user-avatar {
+    max-width: 40px;
+    cursor: pointer;
+}
+
+.header__logo img, 
+.header__user-avatar img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.header--active{
+    background-color: #141414;
+}
