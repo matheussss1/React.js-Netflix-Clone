@@ -12,11 +12,11 @@
     position: relative;
 }
 
-.featured-movie__details{
+.featured-movie__details {
     position: absolute;
-    width: 50%;
+    width: 55%;
     max-width: 600px;
-    top: 45%;
+    top: 55%;
     transform: translate(10%, -50%);
     font-size: 1.6rem;
 }
@@ -31,6 +31,41 @@
 
 .featured-movie__info span{
     margin-right: 1.5rem;
+}
+
+.featured-movie__overview{
+    color: #CCCC;
+}
+
+.featured-movie__cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: .8rem 0;
+    width: 35%;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover{
+    filter: brightness(90%);
+}
+
+.button-white{
+    background-color: rgba(245,245,245);
+    color: black;
+}
+
+.button-black {
+    background-color: rgba(90,90,90, .5);
+    color: white;
 }
 
 @media(max-width: 800px) {
